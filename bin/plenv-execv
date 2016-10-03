@@ -18,7 +18,11 @@ set -e
 
 # Provide plenv completions
 if [ "$1" = "--complete" ]; then
-  exec plenv shims --short
+  case $# in
+    1) echo system; exec plenv-versions --bare;;
+    2) exec plenv shims --short;;
+    *) exit
+  esac
 fi
 
 PLENV_VERSION="$1"
