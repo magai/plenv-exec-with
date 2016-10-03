@@ -21,11 +21,11 @@ if [ "$1" = "--complete" ]; then
   exec plenv shims --short
 fi
 
-PLENV_VERSION="$(plenv-version-name)"
-PLENV_COMMAND="$1"
+PLENV_VERSION="$1"
+PLENV_COMMAND="$2"
 
 if [ -z "$PLENV_COMMAND" ]; then
-  plenv-help --usage exec >&2
+  plenv-help --usage execv >&2
   exit 1
 fi
 
@@ -34,7 +34,7 @@ PLENV_COMMAND_PATH="$(plenv-which "$PLENV_COMMAND")"
 PLENV_BIN_PATH="${PLENV_COMMAND_PATH%/*}"
 
 OLDIFS="$IFS"
-IFS=$'\n' scripts=(`plenv-hooks exec`)
+IFS=$'\n' scripts=(`plenv-hooks execv`)
 IFS="$OLDIFS"
 for script in "${scripts[@]}"; do
   source "$script"
