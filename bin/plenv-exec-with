@@ -2,13 +2,13 @@
 #
 # Summary: Run an executable with the specified Perl version
 #
-# Usage: plenv execv <version> <command> [arg1 arg2...]
+# Usage: plenv exec-with <version> <command> [arg1 arg2...]
 #
 # Runs an executable by first preparing PATH so that the specified Perl
 # version's `bin' directory is at the front.
 #
 # For example, if the specified Perl version is 5.18.0:
-#   plenv execv 5.18.0 carton install
+#   plenv exec-with 5.18.0 carton install
 #
 # is equivalent to:
 #   PATH="$PLENV_ROOT/versions/5.18.0/bin:$PATH" carton install
@@ -29,7 +29,7 @@ PLENV_VERSION="$1"
 PLENV_COMMAND="$2"
 
 if [ -z "$PLENV_COMMAND" ]; then
-  plenv-help --usage execv >&2
+  plenv-help --usage exec-with >&2
   exit 1
 fi
 
@@ -38,7 +38,7 @@ PLENV_COMMAND_PATH="$(plenv-which "$PLENV_COMMAND")"
 PLENV_BIN_PATH="${PLENV_COMMAND_PATH%/*}"
 
 OLDIFS="$IFS"
-IFS=$'\n' scripts=(`plenv-hooks execv`)
+IFS=$'\n' scripts=(`plenv-hooks exec-with`)
 IFS="$OLDIFS"
 for script in "${scripts[@]}"; do
   source "$script"

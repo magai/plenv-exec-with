@@ -1,15 +1,15 @@
 # NAME
 
-plenv-execv - plenv exec with specified perl version
+plenv-exec-with - plenv exec with specified perl version
 
 # SYNOPSIS
 
-    plenv execv 5.14.4 cinnamon production deploy
+    plenv exec-with 5.14.4 cinnamon production deploy
 
 # INSTALLATION
 
 ```sh
-$ git clone https://github.com/magai/plenv-execv ~/.plenv/plugins/plenv-execv
+$ git clone https://github.com/magai/plenv-exec-with ~/.plenv/plugins/plenv-exec-with
 ```
 
 # DESCRIPTION
@@ -18,14 +18,14 @@ TODO
 
 # LICENSE
 
-## plenv-execv
+## plenv-exec-with
 
 This program is free software; you can redistribute it and/or modify it under
 the same terms as Perl itself.
 
 ## plenv
 
-plenv-execv based on plenv (plenv-exec)
+plenv-exec-with based on plenv (plenv-exec)
 
 > ## plenv itself
 > 
