@@ -48,4 +48,4 @@ shift 1
 if [ "$PLENV_VERSION" != "system" ]; then
   export PATH="${PLENV_BIN_PATH}:${PATH}"
 fi
-exec -a "$PLENV_COMMAND" "$PLENV_COMMAND_PATH" "$@"
+exec -a "$PLENV_COMMAND" "$PLENV_COMMAND_PATH" "${@:2}"
